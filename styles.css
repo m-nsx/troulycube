@@ -1,0 +1,122 @@
+:root{
+  --primary:#ff4040;
+  --bg:#0f0f10;
+  --muted:#888;
+  --card:#1a1a1a;
+  --accent:#5865F2;
+  --danger:#e53935;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+a{color:inherit}
+
+/* NAV */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 2rem;
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position:relative;
+  z-index:10;
+}
+
+.nav__brand{display:flex;align-items:center;text-decoration:none;color:#fff}
+.nav__logo{width:50px;height:50px;margin-right:10px;object-fit:contain}
+.nav__title{font-weight:700;font-size:1.25rem;letter-spacing:2px}
+
+.nav__list{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+.nav__list a{color:#fff;text-decoration:none;font-weight:500}
+
+.nav__toggle{display:none;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background-color:#222;
+  background-image:url('media/img/main_bg.png');
+  background-size:cover;
+  background-position:center;
+}
+.hero__title{
+  font-family:Impact, Charcoal, sans-serif;
+  font-size:clamp(48px, 12vw, 140px);
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  margin:30px 0;
+  text-shadow:0 0 20px #000;
+}
+.hero__version{
+  font-family:Impact, Charcoal, sans-serif;
+  font-size:clamp(20px, 4vw, 36px);
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  margin:30px 0 60px;
+  text-shadow:0 0 20px #000;
+}
+
+/* Buttons */
+.btn{display:inline-block;padding:12px 28px;border-radius:999px;background:#222;color:#fff;text-decoration:none;font-weight:600;cursor:pointer}
+.btn--primary{background:var(--primary);box-shadow:0 2px 8px rgba(0,0,0,0.08);font-size:1.1rem}
+.btn--discord{background:var(--accent)}
+.btn--danger{background:var(--danger)}
+
+/* JOIN / REJOINDRE */
+.join{min-height:80vh;padding:6rem 2rem;text-align:center;background:#111}
+.join__title{font-family:Impact, Charcoal, sans-serif;font-size:clamp(20px,3.2vw,36px);margin:0 0 20px;letter-spacing:2px}
+.join__address{font-size:2rem;margin:10px 0;color:#fff;cursor:pointer}
+.copy-confirm{color:#4caf50;font-size:1.1rem;margin-bottom:10px;opacity:0;transform:translateY(-4px);transition:all .2s ease}
+.copy-confirm.visible{opacity:1;transform:none}
+.join__meta{font-size:1rem;color:var(--muted);margin-bottom:20px}
+
+.status{margin:2rem auto;max-width:680px}
+.status__card{background:var(--card);padding:20px;border-radius:12px;margin-bottom:20px;text-align:left}
+.status__card h3{color:var(--primary);margin-top:0}
+.status__state{font-size:1.2rem;font-weight:700}
+
+.map-cta{margin:2rem 0}
+.map-cta__text{font-size:1rem;margin-bottom:8px;color:var(--muted)}
+
+.news{margin:2rem auto;max-width:680px;text-align:left}
+.news__title{color:var(--primary);font-size:1.5rem}
+.news__item{background:var(--card);padding:1rem;margin-top:0;margin-bottom:1rem;border-radius:8px;border-left:4px solid var(--primary)}
+.news__item strong{color:var(--primary);font-size:1.1rem}
+.news__item p{margin:0.5rem 0 0}
+.news__item small{color:var(--muted);display:block;margin-top:8px}
+
+.actions{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:2rem}
+
+.footer{background:#000;color:#fff;text-align:center;padding:1.5rem 0;margin:0}
+
+/* Responsive */
+@media (max-width:900px){
+  .nav__list{display:none;position:absolute;right:1rem;top:100%;background:var(--primary);flex-direction:column;padding:1rem;border-radius:8px;min-width:160px}
+  .nav__list.open{display:flex}
+  .nav__toggle{display:block}
+  .nav{padding:1rem}
+  .hero__title{margin:10px 0}
+}
+
+@media (max-width:480px){
+  .join__address{font-size:1.6rem}
+  .btn{padding:10px 20px}
+}

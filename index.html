@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TroulyCube</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav">
+        <div class="nav__left">
+          <a href="/" class="nav__brand">
+            <img src="media/img/troulycube.png" alt="Logo TroulyCube" class="nav__logo" />
+            <span class="nav__title">TROULYCUBE</span>
+          </a>
+        </div>
+        <button id="menu-toggle" class="nav__toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul id="nav-list" class="nav__list">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/wip">Serveur RP</a></li>
+          <li><a href="/anarchy">Serveur Anarchie</a></li>
+          <li><a href="/wip">Events</a></li>
+          <li><a href="/wip">Équipe</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <div class="hero__content">
+            <h1 class="hero__title">TROULYCUBE</h1>
+            <a href="#nous-rejoindre" class="btn btn--primary hero__cta">Nous rejoindre</a>
+            <h2 class="hero__version">1.20.1</h2>
+          </div>
+        </section>
+
+        <section id="nous-rejoindre" class="join">
+          <h2 class="join__title">REJOINS LA COMMUNAUTÉ DE TROULYCUBE<br/>ET COMMENCE TON AVENTURE</h2>
+
+          <div id="server-address" class="join__address" title="Cliquez pour copier">play.troulycube.fr</div>
+          <div id="copy-confirm" class="copy-confirm" aria-hidden="true">Adresse copiée !</div>
+
+          <div class="join__meta">Minecraft 1.20.1</div>
+
+          <div id="server-status" class="status" aria-live="polite">
+            <div class="status__card">
+              <h3>📡 Statut du serveur</h3>
+              <p class="status__state">—</p>
+              <p class="status__players">Joueurs : — / —</p>
+            </div>
+          </div>
+
+          <div class="map-cta">
+            <p class="map-cta__text">Explorez le serveur en ligne via la map</p>
+            <a class="btn btn--primary" href="https://webmap.troulycube.fr/#world:-5063:45:1370:239:-0.67:0.81:0:0:perspective" target="_blank" rel="noreferrer">J'Y VAIS !</a>
+          </div>
+
+          <div id="news-list" class="news">
+            <h3 class="news__title">📰 Actualités</h3>
+            <div class="news__item">
+              <strong>Bienvenue sur TroulyCube</strong>
+              <p>Le serveur est en place, rejoignez-nous et amusez-vous !</p>
+              <small>26/01/2026</small>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn--discord" href="https://discord.gg/9FyKEKxCtX" target="_blank" rel="noreferrer">Discord</a>
+            <a class="btn" href="/wip">Notre équipe</a>
+            <a class="btn btn--danger" href="/wip">Règlement</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">TroulyCube © 2019 par mnsx</footer>
+    </div>
+
+    <script>
+      // Menu toggle pour mobile
+      const menuToggle = document.getElementById('menu-toggle');
+      const navList = document.getElementById('nav-list');
+      if (menuToggle && navList) {
+        menuToggle.addEventListener('click', () => navList.classList.toggle('open'));
+      }
+
+      // Copie de l'adresse serveur
+      const serverAddress = document.getElementById('server-address');
+      const copyConfirm = document.getElementById('copy-confirm');
+      if (serverAddress && copyConfirm) {
+        serverAddress.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText('play.troulycube.fr');
+            copyConfirm.setAttribute('aria-hidden', 'false');
+            copyConfirm.classList.add('visible');
+            setTimeout(() => {
+              copyConfirm.classList.remove('visible');
+              copyConfirm.setAttribute('aria-hidden', 'true');
+            }, 1500);
+          } catch (err) {
+            console.error('Impossible de copier', err);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
